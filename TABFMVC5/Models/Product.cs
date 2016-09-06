@@ -11,7 +11,8 @@ namespace TABFMVC5.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,13 @@ namespace TABFMVC5.Models
         }
     
         public int ProductId { get; set; }
+        [Required(ErrorMessage = "商品名稱必填")]
         public string ProductName { get; set; }
+        [Required]
         public Nullable<decimal> Price { get; set; }
+        [Required]
         public Nullable<bool> Active { get; set; }
+        [Required]
         public Nullable<decimal> Stock { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
