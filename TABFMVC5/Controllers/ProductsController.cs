@@ -20,6 +20,11 @@ namespace TABFMVC5.Controllers
             return View(db.Product.ToList());
         }
 
+        public ActionResult IndexTop10()
+        {
+            return View("Index", db.Product.Take(10));
+        }
+
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {
