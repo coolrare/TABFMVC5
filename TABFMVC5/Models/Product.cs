@@ -34,6 +34,7 @@ namespace TABFMVC5.Models
         public Nullable<bool> Active { get; set; }
         [Required]
         [DisplayName("庫存量")]
+        [DisplayFormat(DataFormatString = "{0:#,#}")]
         public Nullable<decimal> Stock { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
