@@ -310,6 +310,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\LoginResult.cshtml" />
+    <Content Include="Views\EF\ShowProduct.cshtml" />
     <Content Include="Views\EF\CreateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup />

@@ -9,23 +9,25 @@ namespace TABFMVC5.Controllers
 {
     public class EFController : Controller
     {
+        FabricsEntities db = new FabricsEntities();
+
         public ActionResult CreateProduct()
         {
-            var db = new FabricsEntities();
+            return View();
+        }
 
-            var data = new Product()
-            {
-                ProductName = "Will",
-                Active = true,
-                Stock = 1,
-                Price = 100
-            };
-
+        [HttpPost]
+        public ActionResult CreateProduct(Product data)
+        {
             db.Product.Add(data);
-
             db.SaveChanges();
 
-            return View(data);
+            return RedirectToAction("ShowProduct", new { id = data.ProductId });
+        }
+
+        public ActionResult ShowProduct(int id)
+        {
+            return View(db.Product.Find(id));
         }
     }
 }
