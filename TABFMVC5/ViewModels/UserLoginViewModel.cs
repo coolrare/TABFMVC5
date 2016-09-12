@@ -9,8 +9,11 @@ namespace TABFMVC5.ViewModels
 {
     public class UserLoginViewModel
     {
+        [DisplayName("帳號")]
         public string username { get; set; }
 
+        [DisplayName("密碼")]
+        [DataType(DataType.Password)]
         public string password { get; set; }
     }
 }
