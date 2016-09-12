@@ -29,5 +29,17 @@ namespace TABFMVC5.Controllers
         {
             return View(db.Product.Find(id));
         }
+
+        public ActionResult ListProducts(string keyword)
+        {
+            var data = db.Product.AsQueryable();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                data = data.Where(p => p.ProductName.Contains(keyword));
+            }
+
+            return View(data);
+        }
     }
 }
