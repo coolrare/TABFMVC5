@@ -27,7 +27,11 @@ namespace TABFMVC5.Controllers
 
         public ActionResult ShowProduct(int id)
         {
-            return View(db.Product.Find(id));
+            //var data = db.Product.Find(id);
+
+            var data = db.Database.SqlQuery<Product>("SELECT * FROM dbo.Product WHERE ProductId=@p0", id).AsQueryable().FirstOrDefault();
+
+            return View(data);
         }
 
         public ActionResult ListProducts(string keyword)
@@ -85,5 +89,11 @@ namespace TABFMVC5.Controllers
             return RedirectToAction("ListProducts");
         }
 
+        public ActionResult DoublePriceProducts()
+        {
+            db.Database.ExecuteSqlCommand("UPDATE dbo.Product SET Price=Price*2");
+
+            return RedirectToAction("ListProducts");
+        }
     }
 }
