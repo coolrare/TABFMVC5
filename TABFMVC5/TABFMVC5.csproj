@@ -313,6 +313,7 @@
     <Content Include="Views\EF\ShowProduct.cshtml" />
     <Content Include="Views\EF\CreateProduct.cshtml" />
     <Content Include="Views\EF\ListProducts.cshtml" />
+    <Content Include="Views\EF\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -41,5 +41,23 @@ namespace TABFMVC5.Controllers
 
             return View(data);
         }
+
+        public ActionResult EditProduct(int id)
+        {
+            return View(db.Product.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult EditProduct(int id, Product data)
+        {
+            var item = db.Product.Find(id);
+
+            item.ProductName = data.ProductName;
+            item.Price = data.Price;
+
+            db.SaveChanges();
+
+            return RedirectToAction("ShowProduct", new { id = id });
+        }
     }
 }
