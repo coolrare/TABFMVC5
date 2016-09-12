@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TABFMVC5.Models;
+using TABFMVC5.ViewModels;
 
 namespace TABFMVC5.Controllers
 {
@@ -31,6 +32,17 @@ namespace TABFMVC5.Controllers
         public ActionResult Test()
         {
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(UserLoginViewModel form)
+        {
+            return View("LoginResult", form);
         }
     }
 }
