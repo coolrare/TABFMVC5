@@ -59,5 +59,31 @@ namespace TABFMVC5.Controllers
 
             return RedirectToAction("ShowProduct", new { id = id });
         }
+
+        public ActionResult RemoveProduct(int id)
+        {
+            var item = db.Product.Find(id);
+
+            // 1.
+            // db.OrderLine.Where(p => p.ProductId == id);
+
+            // 2.
+            // item.OrderLine
+
+            //foreach (var orderLine in item.OrderLine.ToList())
+            //{
+            //    db.OrderLine.Remove(orderLine);
+            //}
+
+            // 3.
+            db.OrderLine.RemoveRange(item.OrderLine);
+
+            db.Product.Remove(item);
+
+            db.SaveChanges();
+
+            return RedirectToAction("ListProducts");
+        }
+
     }
 }
