@@ -17,7 +17,7 @@ namespace TABFMVC5.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Product.ToList());
+            return View(db.Product.Where(p => !p.IsDeleted).ToList());
         }
 
         public ActionResult IndexTop10()
@@ -115,7 +115,7 @@ namespace TABFMVC5.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Product.Find(id);
-            db.Product.Remove(product);
+            product.IsDeleted = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
