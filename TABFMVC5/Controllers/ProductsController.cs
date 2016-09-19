@@ -21,7 +21,7 @@ namespace TABFMVC5.Controllers
 
             if (!IsShowDeleted)
             {
-                data = data.Where(p => !p.IsDeleted);
+                data = data.Where(p => !p.IsShowDeleted);
             }
 
             return View(data);
@@ -122,7 +122,7 @@ namespace TABFMVC5.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Product.Find(id);
-            product.IsDeleted = true;
+            product.IsShowDeleted = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
