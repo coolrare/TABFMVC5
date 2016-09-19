@@ -15,9 +15,16 @@ namespace TABFMVC5.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(bool IsShowDeleted = false)
         {
-            return View(db.Product.Where(p => !p.IsDeleted).ToList());
+            var data = db.Product.AsQueryable();
+
+            if (!IsShowDeleted)
+            {
+                data = data.Where(p => !p.IsDeleted);
+            }
+
+            return View(data);
         }
 
         public ActionResult IndexTop10()

@@ -6,9 +6,22 @@
 
 <h2>Index</h2>
 
+
+@using (Html.BeginForm())
+{
 <p>
     @Html.ActionLink("Create New", "Create")
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <label>
+        @Html.CheckBox("IsShowDeleted", new { onchange = "this.form.submit();" })
+        顯示所有資料 (包含已刪除資料)
+    </label>
 </p>
+}
 <table class="table">
     <tr>
         <th>
