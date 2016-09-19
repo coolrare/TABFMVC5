@@ -14,22 +14,19 @@ namespace TABFMVC5.Controllers
     {
         private FabricsEntities db = new FabricsEntities();
 
+        ProductRepository repo = RepositoryHelper.GetProductRepository();
+
         // GET: Products
         public ActionResult Index(bool IsShowDeleted = false)
         {
-            var data = db.Product.AsQueryable();
-
-            if (!IsShowDeleted)
-            {
-                data = data.Where(p => !p.IsShowDeleted);
-            }
+            var data = repo.Get所有資料_可判斷是否顯示刪除的資料(IsShowDeleted);
 
             return View(data);
         }
 
         public ActionResult IndexTop10()
         {
-            return View("Index", db.Product.Take(10));
+            return View("Index", repo.GetTop10());
         }
 
         // GET: Products/Details/5
@@ -39,7 +36,7 @@ namespace TABFMVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Product.Find(id);
+            Product product = repo.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -77,7 +74,7 @@ namespace TABFMVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Product.Find(id);
+            Product product = repo.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -108,7 +105,7 @@ namespace TABFMVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Product.Find(id);
+            Product product = repo.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -121,9 +118,9 @@ namespace TABFMVC5.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Product.Find(id);
+            Product product = repo.Find(id);
             product.IsShowDeleted = true;
-            db.SaveChanges();
+            repo.UnitOfWork.Commit();
             return RedirectToAction("Index");
         }
 
