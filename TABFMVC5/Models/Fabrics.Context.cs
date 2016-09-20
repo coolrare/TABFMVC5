@@ -12,6 +12,8 @@ namespace TABFMVC5.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class FabricsEntities : DbContext
     {
@@ -30,5 +32,14 @@ namespace TABFMVC5.Models
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderLine> OrderLine { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+    
+        public virtual ObjectResult<GetClientOrdersTotal_Result> GetClientOrdersTotal(Nullable<int> clientId)
+        {
+            var clientIdParameter = clientId.HasValue ?
+                new ObjectParameter("ClientId", clientId) :
+                new ObjectParameter("ClientId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetClientOrdersTotal_Result>("GetClientOrdersTotal", clientIdParameter);
+        }
     }
 }

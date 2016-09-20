@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Linq;
 using System.Collections.Generic;
 	
@@ -11,7 +11,7 @@ namespace TABFMVC5.Models
             return base.All().Where(p => p.Active.HasValue && p.Active.Value);
         }
 
-        public IQueryable<Product> Get©Ò¦³¸ê®Æ_¥i§PÂ_¬O§_Åã¥Ü§R°£ªº¸ê®Æ(bool isShowDeleted)
+        public IQueryable<Product> Getæ‰€æœ‰è³‡æ–™_å¯åˆ¤æ–·æ˜¯å¦é¡¯ç¤ºåˆªé™¤çš„è³‡æ–™(bool isShowDeleted)
         {
             if (!isShowDeleted)
             {

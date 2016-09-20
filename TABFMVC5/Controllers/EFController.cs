@@ -95,5 +95,13 @@ namespace TABFMVC5.Controllers
 
             return RedirectToAction("ListProducts");
         }
+
+        public ActionResult ClientOrdersTotal(int ClientId = 0)
+        {
+            var data = db.GetClientOrdersTotal(ClientId).AsQueryable().FirstOrDefault();
+
+            return View(data);
+        }
+
     }
 }

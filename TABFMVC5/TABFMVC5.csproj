@@ -226,6 +226,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fabrics.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetClientOrdersTotal_Result.cs">
+      <DependentUpon>Fabrics.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IRepository.EF6.cs">
       <AutoGen>True</AutoGen>
@@ -384,6 +387,7 @@
     <Content Include="Views\Clients\Details.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\EF\ClientOrdersTotal.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
