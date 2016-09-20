@@ -53,5 +53,11 @@ namespace TABFMVC5.Controllers
 
             return Json(db.Product.Take(10), JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Redirect1()
+        {
+            var param = new { id = 1, test = "123" };
+            return RedirectToAction("Edit", "Products", param);
+        }
     }
 }
