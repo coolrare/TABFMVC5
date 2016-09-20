@@ -186,6 +186,7 @@
     <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TabfController.cs" />
     <Compile Include="Global.asax.cs">
@@ -393,6 +394,7 @@
     <Content Include="Views\EF\ClientOrdersTotal.cshtml" />
     <Content Include="Views\AR\View1.cshtml" />
     <Content Include="Views\AR\PartialView1.cshtml" />
+    <Content Include="Views\MB\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

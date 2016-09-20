@@ -77,7 +77,10 @@ namespace TABFMVC5.Controllers
             {
                 return HttpNotFound();
             }
-            return View(product);
+
+            ViewData.Model = product;
+
+            return View();
         }
 
         // POST: Products/Edit/5

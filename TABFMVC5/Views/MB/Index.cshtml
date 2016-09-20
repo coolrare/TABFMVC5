@@ -1,0 +1,19 @@
+﻿@using TABFMVC5.Models
+
+<ul>
+    <li>ViewData["Key1"] = @ViewData["Key1"]</li>
+    <li>ViewBag.Key2 = @ViewBag.Key2</li>
+    <li>ViewBag.Key1 = @ViewBag.Key1</li>
+</ul>
+
+<h2>弱型別</h2>
+
+@ViewBag.Product.ProductName
+
+<h2>強型別</h2>
+
+@{
+    var product = ViewBag.Product as Product;
+}
+
+@product.ProductName
