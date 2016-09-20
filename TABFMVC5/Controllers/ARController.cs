@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TABFMVC5.Controllers
 {
-    public class ARController : Controller
+    public class ARController : BaseController
     {
         public ActionResult View1()
         {
@@ -47,5 +47,11 @@ namespace TABFMVC5.Controllers
             return File(Server.MapPath("~/Content/Pikachu_pokemon_wikipedia_thumb400x275.jpg"), "image/jpeg", "pokemon.jpg");
         }
 
+        public ActionResult Json1()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            return Json(db.Product.Take(10), JsonRequestBehavior.AllowGet);
+        }
     }
 }
