@@ -37,5 +37,15 @@ namespace TABFMVC5.Controllers
             return Content("Disallow: /", "text/plain");
         }
 
+        public ActionResult File1()
+        {
+            return File(Server.MapPath("~/Content/Pikachu_pokemon_wikipedia_thumb400x275.jpg"), "image/jpeg");
+        }
+
+        public ActionResult File2()
+        {
+            return File(Server.MapPath("~/Content/Pikachu_pokemon_wikipedia_thumb400x275.jpg"), "image/jpeg", "pokemon.jpg");
+        }
+
     }
 }
