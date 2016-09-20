@@ -10,10 +10,8 @@ using TABFMVC5.Models;
 
 namespace TABFMVC5.Controllers
 {
-    public class ClientsController : Controller
+    public class ClientsController : BaseController
     {
-        private FabricsEntities db = new FabricsEntities();
-
         // GET: Clients
         public ActionResult Index()
         {
