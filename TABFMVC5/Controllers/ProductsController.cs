@@ -12,8 +12,6 @@ namespace TABFMVC5.Controllers
 {
     public class ProductsController : Controller
     {
-        private FabricsEntities db = new FabricsEntities();
-
         ProductRepository repo = RepositoryHelper.GetProductRepository();
 
         // GET: Products
@@ -59,8 +57,8 @@ namespace TABFMVC5.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Product.Add(product);
-                db.SaveChanges();
+                repo.Add(product);
+                repo.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
 
@@ -91,6 +89,7 @@ namespace TABFMVC5.Controllers
         {
             if (ModelState.IsValid)
             {
+                var db = repo.UnitOfWork.Context as FabricsEntities;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -128,7 +127,7 @@ namespace TABFMVC5.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                repo.UnitOfWork.Context.Dispose();
             }
             base.Dispose(disposing);
         }
