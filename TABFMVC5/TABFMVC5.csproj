@@ -294,6 +294,7 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pikachu_pokemon_wikipedia_thumb400x275.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -391,6 +392,7 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\EF\ClientOrdersTotal.cshtml" />
     <Content Include="Views\AR\View1.cshtml" />
+    <Content Include="Views\AR\PartialView1.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
