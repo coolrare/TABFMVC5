@@ -31,6 +31,10 @@
     </label>
 </p>
 }
+
+
+@using (Html.BeginForm())
+{
 <table class="table">
     <tr>
         <th>
@@ -44,24 +48,33 @@
         </th>
         <th></th>
     </tr>
+    @{ 
+        var products = Model.ToArray();
+    }
+@for(var i=0;i<products.Length;i++)
+{
 
-@foreach (var item in Model) {
+    @Html.HiddenFor(modelItem => products[i].ProductId)
+
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
+            @Html.EditorFor(modelItem => products[i].ProductName)
         </td>
         <td>
-            NT$ @String.Format("{0:#,#}", item.Price)
+            NT$ @String.Format("{0:#,#}", products[i].Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Stock)
+            @Html.EditorFor(modelItem => products[i].Stock)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @Html.ActionLink("Edit", "Edit", new { id = products[i].ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id = products[i].ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = products[i].ProductId })
         </td>
     </tr>
 }
 
 </table>
+
+            <input type="submit" value="批次更新" />
+}

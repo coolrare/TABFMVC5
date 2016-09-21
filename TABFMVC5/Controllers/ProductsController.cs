@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TABFMVC5.Models;
+using TABFMVC5.ViewModels;
 
 namespace TABFMVC5.Controllers
 {
@@ -25,6 +26,28 @@ namespace TABFMVC5.Controllers
         public ActionResult IndexTop10()
         {
             return View("Index", repo.GetTop10());
+        }
+
+        [HttpPost]
+        public ActionResult IndexTop10(List<ProductBatchUpdateViewModel> products)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var item in products)
+                {
+                    var pp = repo.Find(item.ProductId);
+                    pp.ProductName = item.ProductName;
+                    pp.Stock = item.Stock;
+                }
+
+                (repo.UnitOfWork.Context as FabricsEntities).Configuration.ValidateOnSaveEnabled = false;
+
+                repo.UnitOfWork.Commit();
+
+                return RedirectToAction("IndexTop10");
+            }
+
+            return View();
         }
 
         // GET: Products/Details/5
