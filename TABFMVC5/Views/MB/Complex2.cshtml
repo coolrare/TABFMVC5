@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Complex2";
+}
+
+<h2>Complex2</h2>
+
+<form action="/MB/Complex2" method="post">
+
+    <h2>Data 1</h2>
+
+    <div class="form-horizontal">
+        <h4>UserLoginViewModel</h4>
+        <hr />
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="data1.username">帳號</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="data1.username" name="data1.username" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="data1.username" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="data1.password">密碼</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line data1.password" id="data1.password" name="data1.password" type="data1.password" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="data1.password" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <hr />
+
+        <h2>Data 2</h2>
+
+        <div class="form-horizontal">
+            <h4>UserLoginViewModel</h4>
+            <hr />
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="data2.username">帳號</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="data2.username" name="data2.username" type="text" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="data2.username" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="data2.password">密碼</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line data2.password" id="data2.password" name="data2.password" type="data2.password" value="" />
+                    <span class="field-validation-valid text-danger" data-valmsg-for="data2.password" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+</form>

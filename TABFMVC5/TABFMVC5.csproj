@@ -395,6 +395,8 @@
     <Content Include="Views\AR\View1.cshtml" />
     <Content Include="Views\AR\PartialView1.cshtml" />
     <Content Include="Views\MB\Index.cshtml" />
+    <Content Include="Views\MB\Complex1.cshtml" />
+    <Content Include="Views\MB\Complex2.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
