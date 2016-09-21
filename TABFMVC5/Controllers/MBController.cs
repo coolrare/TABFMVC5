@@ -49,13 +49,14 @@ namespace TABFMVC5.Controllers
         {
             return Content(data.username + " - " + data.password);
         }
-
+        
         public ActionResult Complex2()
         {
             return View();
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Complex2(UserLoginViewModel data1, UserLoginViewModel data2)
         {
             return Content(data1.username + " - " + data1.password + " | " + data2.username + " - " + data2.password);
@@ -78,6 +79,12 @@ namespace TABFMVC5.Controllers
             {
                 return Content("ERROR");
             }
+        }
+
+        [HandleError(ExceptionType = typeof(ArgumentException), View = "ArgumentExceptionError")]
+        public ActionResult HandleError1(TestErrorViewModel data)
+        {
+            return View();
         }
 
     }

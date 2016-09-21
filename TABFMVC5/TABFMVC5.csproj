@@ -283,6 +283,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\OrderStatusBatchUpdateViewModel.cs" />
     <Compile Include="ViewModels\ProductBatchUpdateViewModel.cs" />
+    <Compile Include="ViewModels\TestErrorViewModel.cs" />
     <Compile Include="ViewModels\UserLoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -395,6 +396,8 @@
     <Content Include="Views\MB\Complex1.cshtml" />
     <Content Include="Views\MB\Complex2.cshtml" />
     <Content Include="Views\Clients\ClientOrders.cshtml" />
+    <Content Include="Views\Shared\ArgumentExceptionError.cshtml" />
+    <Content Include="Views\Shared\DbEntityValidationExceptionError.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

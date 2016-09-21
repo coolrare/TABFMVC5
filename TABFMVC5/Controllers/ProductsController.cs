@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,6 +12,7 @@ using TABFMVC5.ViewModels;
 
 namespace TABFMVC5.Controllers
 {
+    [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "DbEntityValidationExceptionError")]
     public class ProductsController : Controller
     {
         ProductRepository repo = RepositoryHelper.GetProductRepository();
@@ -40,14 +42,14 @@ namespace TABFMVC5.Controllers
                     pp.Stock = item.Stock;
                 }
 
-                repo.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
+                //repo.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
 
                 repo.UnitOfWork.Commit();
 
                 return RedirectToAction("IndexTop10");
             }
 
-            return View();
+            return View("Index", repo.GetTop10());
         }
 
         // GET: Products/Details/5
