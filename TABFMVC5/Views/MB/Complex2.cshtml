@@ -1,64 +1,66 @@
-﻿
+﻿@using TABFMVC5.ViewModels
+@model UserLoginViewModel
+
 @{
     ViewBag.Title = "Complex2";
+
+    UserLoginViewModel data1 = new UserLoginViewModel();
+    UserLoginViewModel data2 = new UserLoginViewModel();
 }
 
 <h2>Complex2</h2>
 
-<form action="/MB/Complex2" method="post">
-
-    <h2>Data 1</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>UserLoginViewModel</h4>
+        <h4>Data 1</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => data1.username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => data1.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => data1.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => data1.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => data1.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => data1.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+
+        <h4>Data 2</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => data2.username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => data2.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => data2.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => data2.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => data2.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => data2.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <hr />
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="data1.username">帳號</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line" id="data1.username" name="data1.username" type="text" value="" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="data1.username" data-valmsg-replace="true"></span>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2" for="data1.password">密碼</label>
-            <div class="col-md-10">
-                <input class="form-control text-box single-line data1.password" id="data1.password" name="data1.password" type="data1.password" value="" />
-                <span class="field-validation-valid text-danger" data-valmsg-for="data1.password" data-valmsg-replace="true"></span>
-            </div>
-        </div>
-
-        <hr />
-
-        <h2>Data 2</h2>
-
-        <div class="form-horizontal">
-            <h4>UserLoginViewModel</h4>
-            <hr />
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="data2.username">帳號</label>
-                <div class="col-md-10">
-                    <input class="form-control text-box single-line" id="data2.username" name="data2.username" type="text" value="" />
-                    <span class="field-validation-valid text-danger" data-valmsg-for="data2.username" data-valmsg-replace="true"></span>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-2" for="data2.password">密碼</label>
-                <div class="col-md-10">
-                    <input class="form-control text-box single-line data2.password" id="data2.password" name="data2.password" type="data2.password" value="" />
-                    <span class="field-validation-valid text-danger" data-valmsg-for="data2.password" data-valmsg-replace="true"></span>
-                </div>
-            </div>
-
-            <hr />
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-</form>
+    </div>
+}
