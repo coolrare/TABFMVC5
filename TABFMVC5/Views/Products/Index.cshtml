@@ -7,6 +7,15 @@
 <h2>Index</h2>
 
 
+@if (TempData["UpdatedProduct"] != null)
+{
+    var product = TempData["UpdatedProduct"] as TABFMVC5.Models.Product;
+
+    <pre>@product.ProductName 資料更新成功！</pre>
+}
+
+
+
 @using (Html.BeginForm())
 {
 <p>

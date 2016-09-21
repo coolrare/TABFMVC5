@@ -20,5 +20,12 @@ namespace TABFMVC5.Controllers
 
             return PartialView();
         }
+
+        public ActionResult Temp1()
+        {
+            TempData["Error"] = "發生錯誤";
+
+            return RedirectToAction("Index");
+        }
     }
 }

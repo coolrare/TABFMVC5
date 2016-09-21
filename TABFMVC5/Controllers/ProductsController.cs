@@ -95,6 +95,9 @@ namespace TABFMVC5.Controllers
                 var db = repo.UnitOfWork.Context as FabricsEntities;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
+
+                TempData["UpdatedProduct"] = product;
+
                 return RedirectToAction("Index");
             }
             return View(product);
