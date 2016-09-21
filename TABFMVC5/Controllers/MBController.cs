@@ -60,5 +60,25 @@ namespace TABFMVC5.Controllers
         {
             return Content(data1.username + " - " + data1.password + " | " + data2.username + " - " + data2.password);
         }
+
+        public ActionResult LateModelBinding()
+        {
+            return View("Complex1");
+        }
+
+        [HttpPost]
+        public ActionResult LateModelBinding(FormCollection form)
+        {
+            UserLoginViewModel data = new UserLoginViewModel();
+            if (TryUpdateModel(data))
+            {
+                return Content(data.username + " - " + data.password);
+            }
+            else
+            {
+                return Content("ERROR");
+            }
+        }
+
     }
 }
