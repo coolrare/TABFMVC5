@@ -40,7 +40,7 @@ namespace TABFMVC5.Controllers
                     pp.Stock = item.Stock;
                 }
 
-                (repo.UnitOfWork.Context as FabricsEntities).Configuration.ValidateOnSaveEnabled = false;
+                repo.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
 
                 repo.UnitOfWork.Commit();
 

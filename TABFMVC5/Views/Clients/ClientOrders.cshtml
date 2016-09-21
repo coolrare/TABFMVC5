@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TABFMVC5.Models.Order>
+@{ 
+    var orders = Model.ToArray();
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.FirstName)
+        </th>
+    </tr>
+
+@for(var i=0; i < orders.Length;i++)
+{
+    @Html.HiddenFor(modelitem => orders[i].OrderId)
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => orders[i].OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => orders[i].OrderTotal)
+        </td>
+        <td>
+            @Html.EditorFor(modelItem => orders[i].OrderStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => orders[i].Client.FirstName)
+        </td>
+    </tr>
+}
+
+</table>

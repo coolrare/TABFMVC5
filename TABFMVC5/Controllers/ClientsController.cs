@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TABFMVC5.Models;
+using TABFMVC5.ViewModels;
 
 namespace TABFMVC5.Controllers
 {
@@ -80,16 +81,29 @@ namespace TABFMVC5.Controllers
         // 詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes")] Client client, IList<OrderStatusBatchUpdateViewModel> orders)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(client).State = EntityState.Modified;
+
+                foreach (var item in orders)
+                {
+                    db.Order.Find(item.OrderId).OrderStatus = item.OrderStatus;
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.OccupationId = new SelectList(db.Occupation, "OccupationId", "OccupationName", client.OccupationId);
-            return View(client);
+
+            Client c = db.Client.Find(client.ClientId);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(c);
         }
 
         // GET: Clients/Delete/5

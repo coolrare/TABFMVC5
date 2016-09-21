@@ -281,6 +281,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OrderStatusBatchUpdateViewModel.cs" />
     <Compile Include="ViewModels\ProductBatchUpdateViewModel.cs" />
     <Compile Include="ViewModels\UserLoginViewModel.cs" />
   </ItemGroup>
@@ -393,6 +394,7 @@
     <Content Include="Views\MB\Index.cshtml" />
     <Content Include="Views\MB\Complex1.cshtml" />
     <Content Include="Views\MB\Complex2.cshtml" />
+    <Content Include="Views\Clients\ClientOrders.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
