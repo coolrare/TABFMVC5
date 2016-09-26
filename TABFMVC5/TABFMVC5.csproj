@@ -184,6 +184,7 @@
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TabfController.cs" />
+    <Compile Include="Controllers\寫入ViewBag_Key2的值Attribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

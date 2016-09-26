@@ -9,11 +9,12 @@ namespace TABFMVC5.Controllers
 {
     public class MBController : BaseController
     {
+        [寫入ViewBag_Key2的值]
         public ActionResult Index()
         {
             ViewData["Key1"] = "Will 1";
 
-            ViewBag.Key2 = "Will 2";
+            //ViewBag.Key2 = "Will 2";
 
             var product = db.Product.Find(1);
 
