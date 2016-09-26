@@ -44,5 +44,10 @@ namespace TABFMVC5.Controllers
         {
             return View("LoginResult", form);
         }
+
+        public ActionResult TemplateIndex()
+        {
+            return View();
+        }
     }
 }
