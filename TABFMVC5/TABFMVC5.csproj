@@ -294,13 +294,22 @@
     <Content Include="App_Data\Fabrics_log.ldf">
       <DependentUpon>Fabrics.mdf</DependentUpon>
     </Content>
+    <Content Include="calendar.html" />
+    <Content Include="chart.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Pikachu_pokemon_wikipedia_thumb400x275.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="file-manager.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="form.html" />
+    <Content Include="gallery.html" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="icon.html" />
+    <Content Include="index.html" />
+    <Content Include="login.html" />
+    <Content Include="messages.html" />
     <Content Include="Models\EFGeneratePartialClass.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EFGeneratePartialClass.cs</LastGenOutput>
@@ -321,6 +330,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="widgets.html" />
     <EntityDeploy Include="Models\Fabrics.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Fabrics.Designer.cs</LastGenOutput>
@@ -340,6 +350,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="submenu.html" />
+    <Content Include="submenu2.html" />
+    <Content Include="submenu3.html" />
+    <Content Include="table.html" />
+    <Content Include="tasks.html" />
+    <Content Include="typography.html" />
+    <Content Include="ui.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -402,9 +419,15 @@
     <Content Include="Views\Shared\ArgumentExceptionError.cshtml" />
     <Content Include="Views\Shared\DbEntityValidationExceptionError.cshtml" />
     <Content Include="Views\ViewTest\Index.cshtml" />
+    <Content Include="Views\MB\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ActionFilters\" />
+    <Folder Include="css\" />
+    <Folder Include="font\" />
+    <Folder Include="img\" />
+    <Folder Include="js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

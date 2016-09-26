@@ -21,7 +21,7 @@ namespace TABFMVC5.Controllers
 
             ViewBag.Product = product;
 
-            return PartialView();
+            return View();
         }
 
         public ActionResult Temp1()
