@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<TABFMVC5.Models.Product>
 
+@section breadcrumb {
+    <li><a href="@Url.Action("Index")">Products</a></li>
+}
+
 @{
     ViewBag.Title = "Index";
 }

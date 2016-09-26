@@ -371,10 +371,14 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home"></i>
-                        <a href="index.html">Home</a>
+                        <a href="@Url.Action("Index", "Home")">Home</a>
                         <i class="icon-angle-right"></i>
                     </li>
-                    <li><a href="#">Dashboard</a></li>
+                    @RenderSection("breadcrumb", false)
+                    @if (!IsSectionDefined("breadcrumb"))
+                    {
+                        <li><a href="#">N/A</a></li>
+                    }
                 </ul>
 
                 @RenderBody()
