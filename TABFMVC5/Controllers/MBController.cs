@@ -9,6 +9,7 @@ namespace TABFMVC5.Controllers
 {
     public class MBController : BaseController
     {
+        [計算Action執行時間並寫入ViewBag_Time]
         [寫入ViewBag_Key2的值]
         public ActionResult Index()
         {
