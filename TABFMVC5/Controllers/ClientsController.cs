@@ -132,6 +132,12 @@ namespace TABFMVC5.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ClientOrders(int id)
+        {
+            var data  = db.Order.Where(p => p.ClientId == id);
+            return View("ClientOrders", data);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
